@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration status="warn">
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS}[%t] %-5level %logger{36} -%msg%n"/>
+        </Console>
+        <RandomAccessFile name="file" fileName="d:/log4j2-demo.log" immediateFlush="false">
+            <PatternLayout pattern="%d{HH:mm:ss}[%t] %-5level %logger{36} -%msg%n"/>
+        </RandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="console"/>
+        </Root>
+        <Logger name="org.demos.simple.DogService" level="error" additivity="false">
+            <AppenderRef ref="file"/>
+        </Logger>
+    </Loggers>
+</Configuration>
